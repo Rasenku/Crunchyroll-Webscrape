@@ -51,19 +51,20 @@ func main() {
 
 		// Write all scraped pieces of information to output text file
 		writer.Write([]string{
-			number,
-			name,
-			year,
-			certificate,
-			runtime,
-			genre,
-			rating,
 			vote,
 			gross,
+      vote,
+      rating,
+      runtime,
+      year,
+      name,
+      certificate,
+      genre,
+      number,
+
 		})
 	})
 
     // start scraping the page under the given URL
     c.Visit(fetchURL)
-    fmt.Println("End of scraping: ", fetchURL)
 }
