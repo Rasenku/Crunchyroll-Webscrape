@@ -5,6 +5,7 @@ import (
     "fmt"
     "log"
     "os"
+    "testing"
 
     "github.com/gocolly/colly"
 )
@@ -14,7 +15,7 @@ func main() {
     fileName := "Anime-Shows.csv"
     file, err := os.Create(fileName)
     if err != nil {
-        log.Fatal("ERROR: Could not create file %q: %s\n", fileName, err)
+        log.Fatalf("ERROR: Could not create file %q: %s\n", fileName, err)
         return
     }
     defer file.Close()
@@ -22,7 +23,7 @@ func main() {
     defer writer.Flush()
 
     // Write column headers of the text file
-    writer.Write([]string{"Sl. No.", "Movie Name", "Release Year", "Certificate", "Genre",
+    writer.Write([]string{"Sl. No.", "Anime Name", "Release Year", "Certificate", "Genre",
 		"Running time", "Rating", "Number of Votes", "Gross"})
 
     // Instantiate the default Collector
@@ -36,9 +37,9 @@ func main() {
       panic(err)
 })
 
-    // Callback when colly finds the entry point to the DOM segment having a show info
+    // Callback when colly finds the entry point to the DOM segment having a anime show info
     c.OnHTML(`.lister-item-content`, func(e *colly.HTMLElement) {
-		//Locate and extract different pieces information about each movie
+		//Locate and extract different pieces information about each anime
 		number := e.ChildText(".lister-item-index")
 		name := e.ChildText(".lister-item-index ~ a")
 		year := e.ChildText(".lister-item-year")
@@ -64,6 +65,7 @@ func main() {
 
 		})
 	})
+
 
     // start scraping the page under the given URL
     c.Visit(fetchURL)
