@@ -7,3 +7,6 @@ You're going to need to install go on your computer and install the colly packag
 
 ### Installing/Running
 After you have this repo in your code editor make sure you do go mod init to get that go module. You can then run go run website.go to scrape the website and you should get a new csv file in your codebase
+
+### Link to Presentation Slides
+https://docs.google.com/presentation/d/1j22HDKzBgc0VkoyQOvcFjUxb_YnDPnn1q0Z4iORaE5E/edit#slide=id.gc4d9af965d_0_1
