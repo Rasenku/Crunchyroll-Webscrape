@@ -5,7 +5,6 @@ import (
     "fmt"
     "log"
     "os"
-    "testing"
 
     "github.com/gocolly/colly"
 )
